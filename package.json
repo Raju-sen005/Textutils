@@ -2,6 +2,7 @@
   "name": "textutills",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -10,6 +11,7 @@
     "ajv": "^8.17.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -36,5 +38,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2"
   }
 }
