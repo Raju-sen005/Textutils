@@ -19,12 +19,26 @@ function App() {
       setAlert(null);
     }, 1500);
   };
-  const tMode = () => {
+// [This function is used because change background colors]
+  // const removeBodyClasses = () => {
+  //   document.body.classList.remove("bg-light");
+  //   document.body.classList.remove("bg-dark");
+  //   document.body.classList.remove("bg-primary");
+  //   document.body.classList.remove("bg-danger");
+  //   document.body.classList.remove("bg-success");
+  //   document.body.classList.remove("bg-warning");
+  // };
+  
+  const tMode = (cls) => {
+    // removeBodyClasses();
+    // console.log(cls);
+    // document.body.classList.add("bg-" + cls );
+    
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#212529";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils:Dark Mode";
+      // document.title = "TextUtils:Dark Mode";
       //[This function is used for blink]
       // setInterval(()=>{
       //   document.title="TextUtils Install now!"
@@ -36,7 +50,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils:Light Mode";
+      // document.title = "TextUtils:Light Mode";
     }
   };
   return (
@@ -46,7 +60,7 @@ function App() {
       <div className="container my-5">
         <TextForms
           showAlert={showAlert}
-          heading="Enter the Heading Here."
+          heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
           mode={mode}
         />
         <About mode={mode} />

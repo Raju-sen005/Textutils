@@ -25,7 +25,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest/globals": true
+    }
   },
   "browserslist": {
     "production": [
@@ -41,7 +46,8 @@
   },
   "devDependencies": {
     "eslint": "^9.22.0",
-    "eslint-config-react-app": "^7.0.1",
+    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2"
   }
 }

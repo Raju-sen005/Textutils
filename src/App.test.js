@@ -8,6 +8,8 @@ test("renders learn react link", () => {
       <App />
     </BrowserRouter>
   );
-  const linkElement = screen.getByText(/Enter the Heading Here./i);
+  const linkElement = screen.getByText(
+    /Try TextUtils - Word Counter, Character Counter, Remove extra spaces/i
+  );
   expect(linkElement).toBeInTheDocument();
 });

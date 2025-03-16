@@ -49,6 +49,7 @@ export default function TextForms(props) {
     let text = document.getElementById("box");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges()
   };
   const ceFont = () => {
     setAlign("center");
@@ -87,40 +88,40 @@ export default function TextForms(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1 my-2" onClick={Upclick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={Upclick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={handOnClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={handOnClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={OnClear}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={OnClear}>
           Clear text
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={OnRed}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={OnRed}>
           change to red
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={OnWhite}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={OnWhite}>
           change to white
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={OnBlue}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={OnBlue}>
           change to blue
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={backRed}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={backRed}>
           background red
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={backBlue}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={backBlue}>
           background blue
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={cFont}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={cFont}>
           Change font
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={ceFont}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={ceFont}>
           Center the text
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={copyText}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={copyText}>
           Copy text
         </button>
-        <button className="btn btn-primary mx-1 my-2" onClick={ext}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-2" onClick={ext}>
           Remove-Extra-Space
         </button>
       </div>
@@ -130,11 +131,11 @@ export default function TextForms(props) {
       >
         <h2>your text summary</h2>
         <p>
-          {text.split(" ").length}Word and {text.length}Character
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length}Word and {text.length}Character
         </p>
         <p>{0.008 * text.split(" ").length}Minutes read</p>
         <h2>Preview</h2>
-        <p>{text.length>0 ? text : "Enter something in the textbox above to preview it here"}</p>
+        <p>{text.length>0 ? text : "Nothing to preview."}</p>
       </div>
     </>
   );
